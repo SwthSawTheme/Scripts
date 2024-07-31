@@ -3,7 +3,10 @@ import string
 
 def alfabeto(num:int):
     if num > 1 and num < 26:
-        alfa = [string.ascii_uppercase]
+        alfa = list(string.ascii_uppercase[:num])
+        return print(alfa)
+    else:
+        return Exception("Digite um inteiro entre 1 e 26")
 
-num = int(input)
-alfa = [string.ascii_uppercase[:num]]
+num = int(input())
+alfabeto(num)
