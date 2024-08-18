@@ -41,10 +41,12 @@ def transformString(texto):
     texto = texto.replace(",",".")
     valor = float(texto)
     return valor
+
 # - 5% sobre faturamento de ISS (mensal)
 # - 0,65% de PIS sobre faturamento, (mensal)
 # - 3% de COFINS sobre faturmaneto, (mensal)
 
+# Calcula o imposto mensal!
 def impostoMensal(valor):
     iss = valor * 0.05
     pis = valor * 0.0065
@@ -56,6 +58,7 @@ def impostoMensal(valor):
 # - 10% de IR Adicional sobre o que ultrapassar 20mil do faturamento (trimestral)
 # - CSLL: 2,88% sobre faturamento (trimestral)
 
+# Calcula o imposto trimestral!
 def impostoTrimestral(valor):
     ir = valor * 0.048
     csll = valor * 0.0288    
@@ -65,6 +68,7 @@ def impostoTrimestral(valor):
     imposto = ir + csll + ir_adicional
     return imposto
 
+# Função principal que executa os tratamentos no dicionário!
 def main():
     for mes, valor in faturamento.items():
         valor = transformString(valor)
