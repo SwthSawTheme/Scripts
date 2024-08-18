@@ -3,8 +3,8 @@ import os
 from time import sleep
 
 def matrizes():
-    linhas = 25
-    colunas = 35
+    linhas = 28
+    colunas = 60
 
     matriz = []
 
@@ -18,6 +18,7 @@ def matrizes():
 tela = matrizes()
 
 def draw():    
+    
     for linha in tela:
         print(" ".join(linha))
 
@@ -30,7 +31,7 @@ def main():
     while True:
         
         # preenche a matriz com o ultimo ponto
-        tela[x][y] = "."
+        tela[x][y] = "░"
 
         if keyboard.is_pressed("a"):
             y -= 1
@@ -49,5 +50,5 @@ def main():
         
         os.system("cls")
         draw()
-        sleep(0.03)
+        sleep(0.02)
 main()
