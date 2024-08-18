@@ -26,7 +26,7 @@ faturamento = {
 
 #     'mes': (faturamento, imposto_mensal, imposto_trimestral),
 # }
-
+resultado = {}
 # Passo a passo
 # Percorrer o dicionario de faturamento
     # Transformar o faturamento dos meses em um número inteiro
@@ -52,15 +52,26 @@ def impostoMensal(valor):
     total = iss + pis + cofins
     return total
 
-def impostoTrimestral(valor):
-    pass
+# - 4.8% de IR (trimestral)
+# - 10% de IR Adicional sobre o que ultrapassar 20mil do faturamento (trimestral)
+# - CSLL: 2,88% sobre faturamento (trimestral)
 
+def impostoTrimestral(valor):
+    ir = valor * 0.048
+    csll = valor * 0.0288    
+    ir_adicional = 0
+    if ir_adicional >= 20000:
+        ir_adicional = (valor - 20000) * 0.1
+    imposto = ir + csll + ir_adicional
+    return imposto
 
 def main():
     for mes, valor in faturamento.items():
         valor = transformString(valor)
-        imposto = impostoMensal(valor)
-        print(f"{imposto:.2f}")
+        valor_impostoMensal = impostoMensal(valor)
+        valor_impostoTrimestral = impostoTrimestral(valor)
+        resultado[mes] = (valor,valor_impostoMensal,valor_impostoTrimestral)
+    print(resultado)
         
 
 if __name__ == "__main__":
