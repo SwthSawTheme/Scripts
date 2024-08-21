@@ -9,3 +9,7 @@ print(lista)
 lista.append(11)
 lista.append(12)
 print(lista)
+
+# Exercício 3: Remova o número 5 da lista e imprima a lista.
+lista.remove(5)
+print(lista)
