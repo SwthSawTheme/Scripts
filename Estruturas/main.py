@@ -13,3 +13,8 @@ print(lista)
 # Exercício 3: Remova o número 5 da lista e imprima a lista.
 lista.remove(5)
 print(lista)
+
+# Exercício 4: Inverta a ordem da lista e imprima o resultado.
+
+lista.reverse()
+print(lista)
