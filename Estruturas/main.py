@@ -24,4 +24,52 @@ lista.reverse()
 menor = min(lista)
 maior = max(lista)
 
-print(menor,maior)
+#print(menor,maior)
+
+## Pilhas (Stacks)
+
+#Exercício 1: Implemente uma pilha usando uma lista. Inclua operações para empilhar (push) e desempilhar (pop) elementos.
+
+import os
+import time
+
+class Pilha:
+
+    def __init__(self):
+        self.pilhas = []
+
+    def push(self,objeto):
+        self.pilhas.append(objeto)
+
+    def pop(self):
+        if self.pilhas:
+            return self.pilhas.pop()
+        else:
+            return None
+
+
+def main():
+
+    pilha = Pilha()
+
+    while True:
+
+        print(f"Conteudo da pilha {pilha.pilhas}")
+
+        item =  input("Digite um item para adicionar a pilha ou exit para sair: ")
+        if item == "exit":
+            break
+
+
+        if item in pilha.pilhas:
+            pilha.pop()
+            print("Desempilhando!")
+        else:
+            pilha.push(item)
+            print("Empilhando")
+
+        os.system("cls")
+        time.sleep(0.05)
+
+if __name__ == "__main__":
+    main()
