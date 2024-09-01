@@ -32,8 +32,6 @@ def readFile(file):
 def writeFile(file,key,value):
     try:
         data = readFile(file)
-        if data is None:
-            return
         data[key] = value
         with open(f"{file}.json","w") as f:
             json.dump(data,f,indent=4)
@@ -43,12 +41,20 @@ def writeFile(file,key,value):
 
 # Função responsavel por excluir dados do arquivo json
 
+def delFile(file,key):
+    try:
+        data = readFile(file)
+        del data[key]
+        with open(f"{file}.json","w") as f:
+            json.dump(data,f,indent=4)
+    except FileNotFoundError:
+        return print("Arquivo não existe")
 
 # Controle do fluxo das funções
 
 if __name__ == "__main__":
     while True:
-        opcoes = ["1.Gravar","2.ler","3.Sair"]
+        opcoes = ["1.Gravar","2.ler","3.Deletar","4.Sair"]
         for item in opcoes:
             print(item)
         choice = int(input())
@@ -62,4 +68,8 @@ if __name__ == "__main__":
             file = readFile(dado)
             print(file)
         elif choice == 3:
+            file = input("Digite o nome de um arquivo para gravar: ")
+            dado = input("Digite o nome da chave para deletar: ")
+            delFile(file,dado)
+        elif choice == 4:
             break
