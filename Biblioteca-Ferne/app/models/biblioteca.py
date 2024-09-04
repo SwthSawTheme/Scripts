@@ -12,14 +12,20 @@ class Biblioteca(object):
             print(i)
 
     def salvar_em_arquivo(self):
-        with open("biblioteca.txt", "w") as livro:
-            for i in self.livros:
-                livro.write(f"{i}\n")
+        try:
+            with open("biblioteca.txt", "w") as livro:
+                for i in self.livros:
+                    livro.write(f"{i}\n")
+        except FileExistsError:
+            return print("Arquivo já existe!")
     
     def carregar_arquivo(self,arquivo):
-        with open(f"{arquivo}.txt","r") as livro:
-            livro = livro.read()
-            return self.livros.append(livro)
+        try:
+            with open(f"{arquivo}.txt","r") as livro:
+                livro = livro.read()
+                return self.livros.append(livro)
+        except FileNotFoundError:
+            return print("Arquivo não encontrado!")
 
 livros = []
 usf = Biblioteca(livros)
