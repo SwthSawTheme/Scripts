@@ -1,5 +1,4 @@
 
-
 class Livro(object):
 
     def __init__(self,titulo:str,autor:str,ano_publicacao:str):
@@ -8,13 +7,15 @@ class Livro(object):
         self.ano_publicacao = ano_publicacao
 
     def getBook(self):
-        formato = [f"Titulo: {self.titulo}",
-                   f"Autor: {self.autor}",
-                   f"Publicação:{self.ano_publicacao}"
-                   ]
+
+        formato = [
+            f"Titulo: {self.titulo}",
+            f"Autor: {self.autor}",
+            f"Publicação:{self.ano_publicacao}"
+            ]
         
-        for l in formato:
-            print(l)
+        for i in formato:
+            print(i)
 
 
 itAcoisa = Livro("It - A Coisa","Stephan King"," fev de 1999")
