@@ -16,8 +16,8 @@ class Biblioteca(object):
             for i in self.livros:
                 livro.write(f"{i}\n")
     
-    def carregar_arquivo(self):
-        with open("biblioteca.txt","r") as livro:
+    def carregar_arquivo(self,arquivo):
+        with open(f"{arquivo}.txt","r") as livro:
             livro = livro.read()
             return self.livros.append(livro)
 
@@ -25,7 +25,5 @@ livros = []
 usf = Biblioteca(livros)
 
 if __name__ == "__main__":
-    usf.adicionar_livro("It - A Coisa")
-    usf.adicionar_livro("O gato preto")
+    usf.carregar_arquivo("biblioteca")
     usf.listar_livros()
-    usf.salvar_em_arquivo()
