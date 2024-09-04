@@ -6,20 +6,20 @@ class Livro(object):
         self.autor = autor
         self.ano_publicacao = ano_publicacao
 
-    def getBook(self):
+    def infLivro(self):
 
         formato = [
             f"Titulo: {self.titulo}",
             f"Autor: {self.autor}",
-            f"Publicação:{self.ano_publicacao}"
+            f"Publicação: {self.ano_publicacao}"
             ]
         
         for i in formato:
             print(i)
 
 
-itAcoisa = Livro("It - A Coisa","Stephan King"," fev de 1999")
+itAcoisa = Livro("It - A Coisa","Stephan King","fev de 1999")
 
 
 if __name__ == "__main__":
-    itAcoisa.getBook()
+    itAcoisa.infLivro()
