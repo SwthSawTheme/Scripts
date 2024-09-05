@@ -16,10 +16,3 @@ class Livro(object):
         
         for i in formato:
             print(i)
-
-
-itAcoisa = Livro("It - A Coisa","Stephan King","fev de 1999")
-
-
-if __name__ == "__main__":
-    itAcoisa.infLivro()

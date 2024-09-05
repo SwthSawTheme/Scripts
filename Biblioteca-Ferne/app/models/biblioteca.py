@@ -27,11 +27,5 @@ class Biblioteca(object):
         except FileNotFoundError:
             return print("Arquivo não encontrado!")
 
-livros = []
-usf = Biblioteca(livros)
-
-if __name__ == "__main__":
-    usf.carregar_arquivo("biblioteca")
-    usf.listar_livros()
 
     
