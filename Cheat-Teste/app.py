@@ -30,7 +30,7 @@ def main():
         pass  # Captura a interrupção do teclado (CTRL+C) para sair do loop
 
     finally:
-        keyboard.unhook_all()  # Limpa todos os hooks de teclado registrados
+        keyboard.unhook_all()
         system("cls")
 
 if __name__ == "__main__":
