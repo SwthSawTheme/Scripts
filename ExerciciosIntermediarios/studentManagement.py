@@ -1,5 +1,5 @@
 import os
-import time
+import json
 
 def adicionar_aluno(aluno:str,notas:list[float],notas_alunos:dict[str,list[float]]):
     notas_alunos[f"{aluno}"] = notas
@@ -41,11 +41,11 @@ def save(dado,nome,notas):
 def load(dado):
     try:
         with open("settings.txt","r") as arquivo:
-            dic = arquivo.read()
-            dado = dic.copy()
-            return dado
-    except:
-        return print("Erro ao carregar!")
+            arquivo = arquivo.read()
+            return dado.update(eval(arquivo))
+        
+    except Exception as a:
+        return print(f"Erro ao carregar! {a}")
 
 
 def main():
@@ -74,13 +74,13 @@ def main():
 
         elif choice == 2:
             clear()
-            maior_media(notas)
+            print(maior_media(notas_alunos))
             input()
             clear()
 
         elif choice == 3:
             clear()
-            listar_alunos_medias(notas)
+            listar_alunos_medias(notas_alunos)
             input()
             clear()
 
