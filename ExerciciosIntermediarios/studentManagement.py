@@ -1,5 +1,4 @@
 import os
-import json
 
 def adicionar_aluno(aluno:str,notas:list[float],notas_alunos:dict[str,list[float]]):
     notas_alunos[f"{aluno}"] = notas
@@ -46,7 +45,6 @@ def load(dado):
         
     except Exception as a:
         return print(f"Erro ao carregar! {a}")
-
 
 def main():
     notas_alunos = {}
