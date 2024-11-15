@@ -24,8 +24,13 @@ Resultado: ['manha', 3]
 """
 
 # desenvolva sua solução aqui
+from collections import Counter
+
 def solucao(respostas):
-    pass
+    contagem = Counter(respostas)
+    mais_votada, votos = contagem.most_common(1)[0]  # Pega a resposta mais votada e seu número de votos
+    return [mais_votada, votos]
+
 
 # Executando testes da sua função
 teste_enquete_1 = [ "dia", "tarde", "dia", "noite", "noite", "tarde", "dia", "noite", "dia", "tarde" ]
