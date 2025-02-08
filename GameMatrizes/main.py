@@ -31,7 +31,7 @@ def main():
     while True:
         
         # preenche a matriz com o ultimo ponto
-        tela[x][y] = "░"
+        tela[x][y] = "."
 
         if keyboard.is_pressed("a"):
             y -= 1
