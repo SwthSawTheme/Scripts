@@ -1,6 +1,3 @@
-import time
-import random
-
 
 def cryptofy(key:list):
     new_key = []
