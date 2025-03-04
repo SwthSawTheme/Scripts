@@ -1,0 +1,5 @@
+Erro ao escrever no arquivo: [Errno 13] Permission denied: 'settings.txt'
+
+Another error message
+Test error message
+Test error message
