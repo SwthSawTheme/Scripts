@@ -1,20 +1,23 @@
 import requests
 from bs4 import BeautifulSoup
 
-# Fazendo a requisição para a página de notícias
-url = r'https://www.rucoyonline.com/characters/Cant%20Lie'
-response = requests.get(url)
+
+character = str(input("Digite o nome do personagem: "))
+character = character.strip("%20")
+# Requisição da pagina
+response = requests.get(f"https://www.rucoyonline.com/characters/{character}")
 html = response.text
 
-# Criando o objeto Beautiful Soup
-soup = BeautifulSoup(html, 'html.parser')
 
-# Buscando todos os elementos que contêm os títulos das notícias
-titulos = soup.find_all(class_="table-responsive")
+soup = BeautifulSoup(html,"html.parser")
 
+table = soup.find("table", class_="character-table")
 
-characters = {}
+character_info = {}
 
-for titulo in titulos:
-    
-    print(titulo.text.strip())
+for row in table.tbody.find_all('tr'):
+    cols = row.find_all('td')
+    key = cols[0].get_text(strip=True)   # Ex: 'Name'
+    value = cols[1].get_text(strip=True) # Ex: 'Cant Lie'
+    character_info[key] = value
+
