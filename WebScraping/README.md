@@ -1,0 +1,1 @@
+# Teste Simplificado para Web Scraping e Armazenamento de dados!

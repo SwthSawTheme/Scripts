@@ -17,7 +17,8 @@ character_info = {}
 
 for row in table.tbody.find_all('tr'):
     cols = row.find_all('td')
-    key = cols[0].get_text(strip=True)   # Ex: 'Name'
-    value = cols[1].get_text(strip=True) # Ex: 'Cant Lie'
+    key = cols[0].get_text(strip=True)
+    value = cols[1].get_text(strip=True)
     character_info[key] = value
+
 
